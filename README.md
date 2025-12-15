@@ -212,6 +212,74 @@ python-dotenv
 
 <hr>
 
+<hr>
+
+<h2>Deploying on Streamlit Cloud</h2>
+
+<p>
+Streamlit Cloud provides the simplest deployment path for this Stage 0 Foundation Agent.
+No Procfile, setup script, or runtime configuration is required.
+</p>
+
+<h3>Steps</h3>
+
+<ol>
+  <li>
+    Go to
+    <a href="https://share.streamlit.io" target="_blank">https://share.streamlit.io</a>
+    and click <strong>Deploy an app</strong>.
+  </li>
+  <li>
+    Select the GitHub repository:
+    <br>
+    <code>mas-workshop / mas_workshop_foundation_agent</code>
+  </li>
+  <li>
+    Choose the branch:
+    <br>
+    <code>main</code>
+  </li>
+  <li>
+    Set the main file path:
+    <br>
+    <code>foundation_agent.py</code>
+  </li>
+  <li>
+    (Optional) Customize the app URL, then click <strong>Advanced settings</strong>.
+  </li>
+  <li>
+    Under <strong>Secrets</strong>, add your Groq API key using TOML format:
+    <pre><code>GROQ_API_KEY="your_groq_api_key_here"</code></pre>
+    <strong>Note:</strong> Quotes are required in Streamlit Cloud.
+  </li>
+  <li>
+    Click <strong>Save</strong>, then <strong>Deploy</strong>.
+  </li>
+</ol>
+
+<p>
+The application will build automatically and be available at a
+<code>.streamlit.app</code> URL.
+</p>
+
+<h3>Important Note on Environment Variables</h3>
+
+<ul>
+  <li>
+    <strong>Streamlit Cloud:</strong> Environment variables must be defined using
+    <strong>TOML syntax with quotes</strong>, for example:
+    <pre><code>GROQ_API_KEY="your_key"</code></pre>
+  </li>
+  <li>
+    <strong>Heroku:</strong> Environment variables must be set
+    <strong>without quotes</strong>, for example:
+    <pre><code>heroku config:set GROQ_API_KEY=your_key</code></pre>
+  </li>
+</ul>
+
+<p> In Heroku the environment variables do not work with quotes. In streamlit quotes are needed.</p>
+
+
 <h2>Purpose of Stage 0</h2>
 
 <p>
