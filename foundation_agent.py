@@ -48,7 +48,7 @@ def main():
                 temperature=0.7,
             )
 
-            response = completion.choices[0].message["content"]
+            response = completion.choices[0].message.content
             st.write("### Response:")
             st.write(response)
 
